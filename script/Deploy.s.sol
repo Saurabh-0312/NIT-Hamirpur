@@ -2,17 +2,15 @@
 pragma solidity ^0.8.13;
 
 import {Script, console} from "forge-std/Script.sol";
-import {Counter} from "../src/Counter.sol";
+import {PatientData} from "../src/Doctor.sol";
 
-contract CounterScript is Script {
-    Counter public counter;
-
-    function setUp() public {}
+contract DeployDoctor is Script {
+    PatientData public data;
 
     function run() public {
         vm.startBroadcast();
 
-        counter = new Counter();
+        data = new PatientData();
 
         vm.stopBroadcast();
     }
